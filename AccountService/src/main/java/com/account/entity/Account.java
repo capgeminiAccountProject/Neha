@@ -2,25 +2,17 @@ package com.account.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
-import lombok.NonNull;
-import lombok.Setter;
 
 @Entity
 @Data
-@Setter
-@NonNull
 @Table(name="Account")
 public class Account {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	
 	@Column(name="first_name")
 	private String firstName;
 	
@@ -45,8 +37,13 @@ public class Account {
 	@Column(name="account_type")
 	private String accountType;
 	
+	@Id
+	@Column(name="account_No")
+	private String accountNo;
+	
 	@Column(name="min_balance")
 	private double minBalance;
+	
 	
 
 	
