@@ -1,5 +1,7 @@
 package com.account.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -33,6 +35,7 @@ public class AccountRegistration {
 
 	@PostMapping("/account/createAccount")
 	public ResponseEntity<AccountResponse> createAccount(@RequestBody Account account) {
+		log.info("New Account created");
 		AccountResponse accountResponse = accountService.getResponse(account);
 		
 		HttpHeaders header = new HttpHeaders();
@@ -41,9 +44,10 @@ public class AccountRegistration {
 		
 	}
 	
+	
+	
 	@GetMapping("/account/getAccount")
 	public ResponseEntity<AccountResponse> findByAccountId(@RequestParam(value="accountNo") String AccountNo) {
-		
 		AccountResponse accountResponse = accountService.getAccountDetails(AccountNo);
 		
 		HttpHeaders header = new HttpHeaders();

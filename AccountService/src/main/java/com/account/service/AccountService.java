@@ -28,7 +28,6 @@ public class AccountService {
 		String accountNo = RandomKeyGenerator.generateAccountNumber();
 		account.setAccountNo(accountNo);
 		accountRepository.save(account);
-		log.info("account created in DB",account);
 		accountResponse.setAccount(account);
 		accountResponse.setRequestSuccess("success");
 		accountResponse.setAccountNo(account.getAccountNo());
@@ -38,7 +37,6 @@ public class AccountService {
 	public AccountResponse getAccountDetails(String accountNo) {
 		try {	
 				Account account = accountRepository.findByAccountNo(accountNo).orElseThrow(() -> new EntityNotFoundException());
-				log.info("Getting account by account no", account);
 				accountResponse.setAccount(account);
 				accountResponse.setRequestSuccess("success");
 				accountResponse.setAccountNo(accountNo);
