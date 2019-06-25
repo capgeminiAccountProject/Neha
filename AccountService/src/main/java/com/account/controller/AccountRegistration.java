@@ -1,11 +1,12 @@
 package com.account.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,10 +26,7 @@ public class AccountRegistration {
 	
 	@Autowired
 	AccountRepository accountRepository;
-	
-	@Autowired
-	AccountResponse accountResponse;
-	
+
 	@Autowired
 	AccountService accountService;
 	
@@ -40,19 +38,27 @@ public class AccountRegistration {
 		
 		HttpHeaders header = new HttpHeaders();
 		header.add("Content-Type", "application/json");
-		return ResponseEntity.status(HttpStatus.OK).headers(header).body(accountResponse);
+		return ResponseEntity.status(HttpStatus.CREATED).headers(header).body(accountResponse);
 		
 	}
+	
 	
 	
 	
 	@GetMapping("/account/getAccount")
 	public ResponseEntity<AccountResponse> findByAccountId(@RequestParam(value="accountNo") String AccountNo) {
-		AccountResponse accountResponse = accountService.getAccountDetails(AccountNo);
+	
+		Optional<AccountResponse> accountResponse = accountService.getAccountDetails(AccountNo);
 		
-		HttpHeaders header = new HttpHeaders();
-		header.add("Content-Type", "application/json");
-		return ResponseEntity.status(HttpStatus.OK).headers(header).body(accountResponse);
+		if(!accountResponse.isPresent()) {
+			log.error("Account No doesn't exist");
+			ResponseEntity.badRequest().build();
+		}
+			
+		return ResponseEntity.ok(accountResponse.get());
+		
 	}
 	
+	
+
 }

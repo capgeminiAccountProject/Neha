@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.account.config.RandomKeyGenerator;
 import com.account.entity.Account;
 import com.account.entity.AccountResponse;
+import com.account.exceptions.AccountNotFoundException;
 import com.account.repository.AccountRepository;
 
 import lombok.extern.log4j.Log4j2;
@@ -29,24 +30,24 @@ public class AccountService {
 		account.setAccountNo(accountNo);
 		accountRepository.save(account);
 		accountResponse.setAccount(account);
-		accountResponse.setRequestSuccess("success");
 		accountResponse.setAccountNo(account.getAccountNo());
 		return accountResponse;
 	}
 	
-	public AccountResponse getAccountDetails(String accountNo) {
-		try {	
-				Account account = accountRepository.findByAccountNo(accountNo).orElseThrow(() -> new EntityNotFoundException());
+	public Optional<AccountResponse> getAccountDetails(String accountNo) {
+		
+		try {
+			
+		        Account account = accountRepository.findByAccountNo(accountNo).orElseThrow(() -> new AccountNotFoundException("Account Number does not exist"));
 				accountResponse.setAccount(account);
-				accountResponse.setRequestSuccess("success");
 				accountResponse.setAccountNo(accountNo);
 			
+		}
+		catch(EntityNotFoundException ex) {
+			log.catching(ex);
+		}
 		
-		}
-		catch(Exception e){
-				accountResponse.setRequestSuccess("Failed");
-		}
-		return accountResponse;
+		return Optional.of(accountResponse);
 	
 	}
 	

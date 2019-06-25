@@ -41,6 +41,9 @@ dependencies {
 	compileOnly('org.projectlombok:lombok:1.18.8')
 	testCompileOnly('org.projectlombok:lombok:1.18.8')
 	testAnnotationProcessor('org.projectlombok:lombok:1.18.8')
+	testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.28.2'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+
 }
 
 test {
