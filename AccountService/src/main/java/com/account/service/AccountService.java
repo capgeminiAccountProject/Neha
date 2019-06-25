@@ -40,8 +40,7 @@ public class AccountService {
 			
 		        Account account = accountRepository.findByAccountNo(accountNo).orElseThrow(() -> new AccountNotFoundException("Account Number does not exist"));
 				accountResponse.setAccount(account);
-				accountResponse.setAccountNo(accountNo);
-			
+				accountResponse.setAccountNo(accountNo);	
 		}
 		catch(EntityNotFoundException ex) {
 			log.catching(ex);
