@@ -25,7 +25,6 @@ import com.account.entity.AccountResponse;
 import com.account.repository.AccountRepository;
 import com.account.service.AccountService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -49,10 +48,10 @@ class AccountRegistrationMockTest {
 	
 	  @BeforeEach
 	  public void init(){ 
-		  MockitoAnnotations.initMocks(this); mvc =
-		  MockMvcBuilders.standaloneSetup(accountRegistration)  
-		  .build(); 
-		  }
+		  MockitoAnnotations.initMocks(this); 
+		  mvc = MockMvcBuilders.standaloneSetup(accountRegistration).build(); 
+		  
+	  }
 	  
 	  
 	//Test getAccountByAccountNumber() method in controller

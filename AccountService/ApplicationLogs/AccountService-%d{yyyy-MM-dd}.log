@@ -2182,3 +2182,43 @@ com.account.exceptions.AccountNotFoundException: Account Number does not exist
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Unknown Source)
+2019-06-25 16:38:02.503 INFO  c.a.AccountServiceApplicationTests -Starting AccountServiceApplicationTests on LNAR-5CG9172VS3 with PID 194860 (started by nehanaik in C:\Users\nehanaik\Documents\CapPOC\Cap-Project\Neha\AccountService)
+2019-06-25 16:38:02.505 INFO  c.a.AccountServiceApplicationTests -No active profile set, falling back to default profiles: default
+2019-06-25 16:38:03.011 INFO  o.s.d.r.c.RepositoryConfigurationDelegate -Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-25 16:38:03.070 INFO  o.s.d.r.c.RepositoryConfigurationDelegate -Finished Spring Data repository scanning in 52ms. Found 1 repository interfaces.
+2019-06-25 16:38:03.616 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f2d2b9fd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-25 16:38:04.131 INFO  o.h.j.i.u.LogHelper -HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-06-25 16:38:04.248 INFO  o.h.Version -HHH000412: Hibernate Core {5.4.3.Final}
+2019-06-25 16:38:04.309 INFO  o.h.a.c.Version -HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-06-25 16:38:04.452 INFO  c.z.h.HikariDataSource -HikariPool-1 - Starting...
+2019-06-25 16:38:04.647 INFO  c.z.h.HikariDataSource -HikariPool-1 - Start completed.
+2019-06-25 16:38:04.664 INFO  o.h.d.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-06-25 16:38:05.209 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-06-25 16:38:05.211 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-25 16:38:06.235 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-25 16:38:06.504 INFO  o.s.s.c.ThreadPoolTaskExecutor -Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-25 16:38:06.969 INFO  c.a.AccountServiceApplicationTests -Started AccountServiceApplicationTests in 4.707 seconds (JVM running for 8.221)
+2019-06-25 16:38:07.002 INFO  o.s.s.c.ThreadPoolTaskExecutor -Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-25 16:38:07.003 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-25 16:38:07.005 INFO  c.z.h.HikariDataSource -HikariPool-1 - Shutdown initiated...
+2019-06-25 16:38:07.025 INFO  c.z.h.HikariDataSource -HikariPool-1 - Shutdown completed.
+2019-06-25 16:44:11.552 INFO  c.a.AccountServiceApplicationTests -Starting AccountServiceApplicationTests on LNAR-5CG9172VS3 with PID 189948 (started by nehanaik in C:\Users\nehanaik\Documents\CapPOC\Cap-Project\Neha\AccountService)
+2019-06-25 16:44:11.554 INFO  c.a.AccountServiceApplicationTests -No active profile set, falling back to default profiles: default
+2019-06-25 16:44:12.129 INFO  o.s.d.r.c.RepositoryConfigurationDelegate -Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-25 16:44:12.192 INFO  o.s.d.r.c.RepositoryConfigurationDelegate -Finished Spring Data repository scanning in 57ms. Found 1 repository interfaces.
+2019-06-25 16:44:12.532 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a5b5e2b1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-25 16:44:12.879 INFO  o.h.j.i.u.LogHelper -HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-06-25 16:44:12.956 INFO  o.h.Version -HHH000412: Hibernate Core {5.4.3.Final}
+2019-06-25 16:44:13.014 INFO  o.h.a.c.Version -HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-06-25 16:44:13.134 INFO  c.z.h.HikariDataSource -HikariPool-1 - Starting...
+2019-06-25 16:44:13.307 INFO  c.z.h.HikariDataSource -HikariPool-1 - Start completed.
+2019-06-25 16:44:13.320 INFO  o.h.d.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-06-25 16:44:13.814 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-06-25 16:44:13.816 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-25 16:44:14.869 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-25 16:44:15.118 INFO  o.s.s.c.ThreadPoolTaskExecutor -Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-25 16:44:15.528 INFO  c.a.AccountServiceApplicationTests -Started AccountServiceApplicationTests in 4.167 seconds (JVM running for 6.998)
+2019-06-25 16:44:15.556 INFO  o.s.s.c.ThreadPoolTaskExecutor -Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-25 16:44:15.557 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean -Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-25 16:44:15.560 INFO  c.z.h.HikariDataSource -HikariPool-1 - Shutdown initiated...
+2019-06-25 16:44:15.576 INFO  c.z.h.HikariDataSource -HikariPool-1 - Shutdown completed.
