@@ -61,14 +61,15 @@ class AccountRegistrationMockTest {
 		
 
 		Account account = new Account("manu", "aluri", "04-04-1991", "647643434",
-						"kate@gmail.com", "848144134", "NJ", "Wheeling", "Saving","78546644301", 763434);
+						"kate@gmail.com", "apple","848144134", "NJ", "Wheeling", "Saving","78546644301", 763434);
 				
 		String accountNo = "78546644301";
 		AccountResponse accountResponse = new AccountResponse(accountNo, account);
 
 		when(accountRepository.findByAccountNo("78546644301")).thenReturn(Optional.of(account));
-		when(accountService.getAccountDetails("78546644301")).thenReturn(Optional.of(accountResponse));
+	//	when(accountService.getAccountDetails("78546644301")).thenReturn(Optional.of(accountResponse));
 
+		when(accountService.getAccountDetails("78546644301")).thenReturn(accountResponse);
 		mvc.perform(
 				 get("/account/getAccount")
 				.param("accountNo", "78546644301")

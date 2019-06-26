@@ -1,12 +1,10 @@
 package com.account.controller;
 
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,14 +46,21 @@ public class AccountRegistration {
 	@GetMapping("/account/getAccount")
 	public ResponseEntity<AccountResponse> findByAccountId(@RequestParam(value="accountNo") String AccountNo) {
 	
-		Optional<AccountResponse> accountResponse = accountService.getAccountDetails(AccountNo);
+		/*Optional<AccountResponse> accountResponse = accountService.getAccountDetails(AccountNo);
 		
 		if(!accountResponse.isPresent()) {
 			log.error("Account No doesn't exist");
 			ResponseEntity.badRequest().build();
 		}
-			
 		return ResponseEntity.ok(accountResponse.get());
+
+
+		*/
+		
+		AccountResponse accountResponse = accountService.getAccountDetails(AccountNo);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(accountResponse);
+			
 		
 	}
 	

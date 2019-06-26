@@ -11,4 +11,6 @@ import com.account.entity.Account;
 public interface AccountRepository extends CrudRepository<Account, Integer> {
 
 	Optional<Account> findByAccountNo(String accountNo);
+	
+	Optional<Account> findByEmailId(String emailId);
 }

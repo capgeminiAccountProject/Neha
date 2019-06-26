@@ -2,9 +2,8 @@ package com.account.service;
 
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.account.config.RandomKeyGenerator;
@@ -23,18 +22,21 @@ public class AccountService {
 	AccountResponse accountResponse;
 	
 	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
 	AccountRepository accountRepository;
 	
 	public AccountResponse getResponse(Account account) {
 		String accountNo = RandomKeyGenerator.generateAccountNumber();
 		account.setAccountNo(accountNo);
+		account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
 		accountRepository.save(account);
 		accountResponse.setAccount(account);
 		accountResponse.setAccountNo(account.getAccountNo());
 		return accountResponse;
 	}
 	
-	public Optional<AccountResponse> getAccountDetails(String accountNo) {
+	/*public Optional<AccountResponse> getAccountDetails(String accountNo) {
 		
 		try {
 			
@@ -48,6 +50,23 @@ public class AccountService {
 		
 		return Optional.of(accountResponse);
 	
+	}
+	
+	*/
+	
+	public AccountResponse getAccountDetails(String accountNo) {
+		
+		try {
+		Optional<Account> accountOptional = accountRepository.findByAccountNo(accountNo);
+		Account account = accountOptional.orElseThrow(() -> new AccountNotFoundException("Account Number does not exist"));
+		accountResponse.setAccount(account);
+		accountResponse.setAccountNo(accountNo);
+		}
+		catch(AccountNotFoundException ex) {
+			log.catching(ex);
+		}
+		return accountResponse;
+		
 	}
 	
 }
