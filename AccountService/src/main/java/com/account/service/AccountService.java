@@ -31,7 +31,8 @@ public class AccountService {
 		account.setAccountNo(accountNo);
 		account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
 		accountRepository.save(account);
-		accountResponse.setAccount(account);
+		Account accountDetails = new Account(account.getFirstName(),account.getLastName(), account.getDob(), account.getSsn(),account.getEmailId(), account.getMobileNo(), account.getHomeAddress(), account.getMailingAddress(), account.getAccountNo(), account.getAccountType(), account.getMinBalance());
+		accountResponse.setAccount(accountDetails);
 		accountResponse.setAccountNo(account.getAccountNo());
 		return accountResponse;
 	}

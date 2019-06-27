@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -96,6 +97,22 @@ public class Account implements UserDetails {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public Account(String firstName, String lastName, String dob, String ssn, String emailId, String mobileNo,
+			String homeAddress, String mailingAddress, String accountType, String accountNo, double minBalance) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dob = dob;
+		this.ssn = ssn;
+		this.emailId = emailId;
+		this.mobileNo = mobileNo;
+		this.homeAddress = homeAddress;
+		this.mailingAddress = mailingAddress;
+		this.accountType = accountType;
+		this.accountNo = accountNo;
+		this.minBalance = minBalance;
+	}
+	
 	
 	
 
