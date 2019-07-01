@@ -10,6 +10,9 @@ import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,6 +44,7 @@ public class Account implements UserDetails {
 	@Column(name="email_id")
 	private String emailId;
 	
+	@JsonProperty(access=Access.WRITE_ONLY)
 	private String password;
 	
 	@Column(name="mobile_no")

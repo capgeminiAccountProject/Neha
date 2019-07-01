@@ -23,6 +23,7 @@ public class AccountService {
 	
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 	@Autowired
 	AccountRepository accountRepository;
 	
@@ -60,7 +61,9 @@ public class AccountService {
 		try {
 		Optional<Account> accountOptional = accountRepository.findByAccountNo(accountNo);
 		Account account = accountOptional.orElseThrow(() -> new AccountNotFoundException("Account Number does not exist"));
-		accountResponse.setAccount(account);
+		Account accountDetails = new Account(account.getFirstName(),account.getLastName(), account.getDob(), account.getSsn(),account.getEmailId(), account.getMobileNo(), account.getHomeAddress(), account.getMailingAddress(), account.getAccountNo(), account.getAccountType(), account.getMinBalance());
+
+		accountResponse.setAccount(accountDetails);
 		accountResponse.setAccountNo(accountNo);
 		}
 		catch(AccountNotFoundException ex) {
